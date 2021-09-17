@@ -71,7 +71,7 @@ a:link {
 }
 
 .catalogue-cover{
-  max-height: 15rem;
+  max-height: 10rem;
 }
 
 .form-floating{
@@ -93,20 +93,17 @@ a:link {
   padding:30px;
 }
 
-#sidebar-wrapper{
-  margin-left:3rem;
-    margin-right:3rem;
-}
+
 
 @media (min-width: 768px) {
 	  
-	#sidebar-wrapper {
-	  margin-left: 0;
-	}
   
 	#page-content-wrapper {
 	  min-width: 0;
 	  width: 100%;
+    margin-top:40px;
+    margin-left:40px;
+    
 	}
   
 	body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
@@ -118,11 +115,11 @@ a:link {
 	}
 
 	.dashboard-content{
-		margin-top:73px;
-		margin-left:23px;
-		padding-right:60px;
+		margin-top:40px;
 
 	}
+
+
 
   }
 
@@ -131,4 +128,34 @@ a:link {
     display:none;
     
   }
+
+  #wrapper{
+    min-width:100vw;
   }
+  }
+
+  #sidebar-wrapper{
+    margin-top:40px;
+    margin-left:40px;
+    box-shadow: 2px 2px 4px 4px #00000012;
+  }
+
+  #mobile-admin-navbar{
+    width:100%;
+  }
+
+#page-content-wrapper{
+  width:100%;
+}
+
+#wrapper{
+  min-height:95.7vh;
+}
+
+.navbar-toggler{
+  margin:auto;
+}
+
+.mobile-menu-logo{
+  width:100vw;
+}
