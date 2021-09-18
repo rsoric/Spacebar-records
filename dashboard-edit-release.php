@@ -1,4 +1,19 @@
 <?php include_once "dashboard-header.php";
+      include_once "Backend/releases.php";
+      include_once "Backend/functions.php";
+
+    if(isset($_POST['submit']))
+    {
+        $albumID = sanitizeInput($_POST["albumID"]);
+        $albumName = sanitizeInput($_POST["albumName"]);
+        $albumImg = sanitizeInput($_POST["albumImg"]);
+        $albumAutor = sanitizeInput($_POST["albumAutor"]);
+        $albumTracks = sanitizeInput($_POST["albumTracks"]);
+        $albumDescription = sanitizeInput($_POST["albumDescription"]);
+    }
+
+    
+
 ?>
 
 <div class="container-fluid dashboard-content">
@@ -14,22 +29,22 @@
     </div>
 
     <div class="new-product-input">
-        <form id="edit-product-form" action="Includes/editProduct.php" method="post">
+        <form id="edit-product-form" action="Backend/releases-edit.php" method="post">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label hidden for="ProductID">Cat. Number:</label>
-                        <input hidden class="form-control form-control-lg" type="text" name="productID" value="">
-                        <label for="ProductName">Artist:</label>
-                        <input class="form-control form-control-lg" type="text" name="productName" value="" required>
-                        <label for="imageURL">Title:</label>
-                        <input class="form-control form-control-lg" type="text" name="productImg" value="" required>
-                        <label for="price">Cover URL:</label>
-                        <input class="form-control form-control-lg" type="text" name="productAmount" value="" required>
-                        <label for="amount">Tracklist:</label>
-                        <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea"></textarea>
-                        <label for="amount">Description:</label>
-                        <textarea class="form-control" rows="5" style="height:100%;" aria-label="With textarea"></textarea>
+                        <label hidden for="albumID">Id Number:</label>
+                        <input hidden class="form-control form-control-lg" type="text" name="albumID" value="<?php echo $albumID?>">
+                        <label for="albumAutor">Artist:</label>
+                        <input class="form-control form-control-lg" type="text" name="albumAutor" value="<?php echo $albumAutor?>" required>
+                        <label for="albumName">Title:</label>
+                        <input class="form-control form-control-lg" type="text" name="albumName" value="<?php echo $albumName?>" required>
+                        <label for="albumImg">Cover URL:</label>
+                        <input class="form-control form-control-lg" type="url" name="albumImg" value="<?php echo $albumImg?>" required>
+                        <label for="albumTracks">Tracklist:</label>
+                        <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea"><?php echo $albumTracks?></textarea>
+                        <label for="albumDescription">Description:</label>
+                        <textarea class="form-control" rows="5" style="height:100%;" aria-label="With textarea"><?php echo $albumDescription?></textarea>
                     </div>
                     
                     

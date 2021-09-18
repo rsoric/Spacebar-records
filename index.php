@@ -57,7 +57,7 @@
       </div>
       <div class="row home-menu justify-content-between">
         <div class="col-sm home-menu-item">
-          <a href="/about.php">
+          <a href="about.php">
             <div class="menu-icon-wrapper" id="icon-about-wrapper" onmouseover="rotateYDIV('icon-about-wrapper')">
               <img src="img/icon-about.png" class="menu-icon img-fluid" id="icon-about">
             </div>
@@ -66,7 +66,7 @@
         </div>
 
         <div class="col-sm home-menu-item">
-          <a href="/releases.php">
+          <a href="releases.php">
             <div class="menu-icon-wrapper" id="icon-releases-wrapper" onmouseover="rotateYDIV('icon-releases-wrapper')">
               <img src="img/icon-releases.png" class="menu-icon img-fluid" id="icon-reelases">
             </div>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="col home-menu-item">
-          <a href="/login.php">
+          <a href="login.php">
             <div class="menu-icon-wrapper" id="icon-login-wrapper" onmouseover="rotateYDIV('icon-login-wrapper')">
               <img src="img/icon-login.png" class="menu-icon img-fluid" id="icon-login">
             </div>
