@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Čvarci.net" />
-    <title>Čvarci.net admin panel</title>
+    <meta name="description" content="Spacebar.com" />
+    <title>Spacebar admin panel</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -19,7 +19,11 @@
 
 <body>
 
-    <?php 
+<?php 
+    if(!isset($_COOKIE['Admin']))
+    {
+        header("Location: login.php");
+    }
 ?>
 
 
@@ -36,9 +40,9 @@
                 <a href="dashboard-releases.php"
                     class="admin-panel-nav-item list-group-item list-group-item-action list-group-item-light p-3"
                     data-pathname="/dashboard-releases.php">Releases</a>
-                <a href="dashboard-logout.php"
+                <a href="Backend/logout.php"
                     class="admin-panel-nav-item list-group-item list-group-item-action list-group-item-light p-3"
-                    data-pathname="/dashboard-logout.php">Log Out</a>
+                    data-pathname="Backend/logout.php">Log Out</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -64,12 +68,12 @@
                             <li><a href="dashboard.php"
                                     class="admin-panel-nav-item list-group-item list-group-item-action list-group-item-light p-3"
                                     data-pathname="/dashboard.php">Dashboard Home</a></li>
-                            <li><a href="dashboard-products.php"
+                            <li><a href="dashboard-releases.php"
                                     class="admin-panel-nav-item list-group-item list-group-item-action list-group-item-light p-3"
-                                    data-pathname="/dashboard-products.php">Releases</a></li>
-                            <li><a href="dashboard-logout.php"
+                                    data-pathname="/dashboard-releases.php">Releases</a></li>
+                            <li><a href="Backend/logout.php"
                                     class="admin-panel-nav-item list-group-item list-group-item-action list-group-item-light p-3"
-                                    data-pathname="/dashboard-logout.php">Log Out</a></li>
+                                    data-pathname="Backend/logout.php">Log Out</a></li>
                         </ul>
                     </div>
                 </div>

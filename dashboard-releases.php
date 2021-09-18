@@ -1,4 +1,5 @@
 <?php include_once "dashboard-header.php";
+      include_once "Backend/releases.php"
 ?>
 
 <div class="container-fluid dashboard-content">
@@ -15,17 +16,37 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">
-                <img src="https://media.pitchfork.com/photos/5929a534b1335d7bf1698b43/1:1/w_320/ebf5c60d.jpg" class="img-responsive catalogue-cover">
-              </th>
-              <td class="align-middle">SPCBR001</td>
-              <td class="align-middle">Young Hacker</td>
-              <td class="align-middle">Rave Anthems</td>
-              <td class="align-middle">
-                <input class="product-edit-button" type="submit" name="submit" value="Edit" id="product-edit-1">
-              </td>
-            </tr>
+          <?php $releases = $_releases->getDBdata();
+            while($album = $releases->fetch()) :?>
+              <tr>
+                <form id="edit-form" action="dashboard-edit-release.php" method="post">
+                  <th style="display: none;" scope="row">
+                    <input type="hidden" name="albumID" value="<?= htmlspecialchars($album['albumID'])?>">
+                    <?= htmlspecialchars($album['albumID']) ?>
+                  </th>
+                  <th scope="row">
+                    <input type="hidden" name="albumImg" value="<?= htmlspecialchars($album['albumImg'])?>">
+                    <img src="<?= htmlspecialchars($album['albumImg'])?>" class="img-responsive catalogue-cover" loading = "lazy">
+                  </th>
+                  <td class="align-middle">
+                    <input type="hidden" name="catalogueID" value="<?= htmlspecialchars($album['catalogueID'])?>">
+                    <?= htmlspecialchars($album['catalogueID']) ?>
+                  </td>
+                  <td class="align-middle">
+                    <input type="hidden" name="albumAutor" value="<?= htmlspecialchars($album['albumAutor'])?>">
+                    <?= htmlspecialchars($album['albumAutor']) ?>
+                  </td>
+                  <td class="align-middle">
+                    <input type="hidden" name="albumName" value="<?= htmlspecialchars($album['albumName'])?>">
+                    <?= htmlspecialchars($album['albumName']) ?>
+                  </td>
+                  <td class="align-middle">
+                    <input class="product-edit-button" type="submit" name="submit" value="Edit" id="product-edit-1">
+                  </td>
+                </form>
+              </tr>
+          <?php 
+            endwhile; ?>
           </tbody>
         </table>
         
