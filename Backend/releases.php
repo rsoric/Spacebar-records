@@ -38,7 +38,8 @@ class Releases
             albumID           INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
             catalogueID       TEXT UNIQUE DEFAULT NULL,
             albumName         NVARCHAR (255) DEFAULT NULL,
-            albumImg          TEXT DEFAULT NULL,    
+            albumImg          TEXT DEFAULT NULL,
+            albumCover        TEXT DEFAULT NULL,
             albumAutor        TEXT DEFAULT NULL,
             albumTracks       TEXT DEFAULT NULL,
             albumDescription  TEXT DEFAULT NULL
@@ -50,18 +51,19 @@ class Releases
      }
 
 
-    public function insertAlbum($albumName, $albumImg, $albumAutor, $albumTracks, $albumDescription)
+    public function insertAlbum($albumName, $albumImg, $albumCover, $albumAutor, $albumTracks, $albumDescription)
     {
         $product = array(
             ':albumName' => $albumName,
             ':albumImg' => $albumImg,
+            ':albumCover' => $albumCover,
             ':albumAutor' => $albumAutor,
             ':albumTracks' => $albumTracks,
             ':albumDescription' => $albumDescription
         );
 
         $sql = <<<EOSQL
-            INSERT INTO $this->_tableName(albumName, albumImg, albumAutor, albumTracks, albumDescription) VALUES(:albumName, :albumImg, :albumAutor, :albumTracks, :albumDescription);
+            INSERT INTO $this->_tableName(albumName, albumImg, albumCover, albumAutor, albumTracks, albumDescription) VALUES(:albumName, :albumImg, :albumCover, :albumAutor, :albumTracks, :albumDescription);
             UPDATE $this->_tableName
             SET catalogueID = CONCAT("SPCBR", LPAD(LAST_INSERT_ID(), 3, 0))
             WHERE albumID = LAST_INSERT_ID();
@@ -79,21 +81,21 @@ class Releases
         }
     }
 
-    public function updateAlbum($albumID, $albumName, $albumImg, $albumAutor, $albumTracks, $albumDescription)
+    public function updateAlbum($albumID, $albumName, $albumImg, $albumCover, $albumAutor, $albumTracks, $albumDescription)
     {
         $product = array(
             ':albumID' => $albumID,
             ':albumName' => $albumName,
             ':albumImg' => $albumImg,
+            ':albumCover' => $albumCover,
             ':albumAutor' => $albumAutor,
             ':albumTracks' => $albumTracks,
             ':albumDescription' => $albumDescription
-
         );
 
         $sql = <<<EOSQL
             UPDATE $this->_tableName
-            SET albumName = :albumName, albumImg = :albumImg, albumAutor = :albumAutor, albumTracks = :albumTracks, albumDescription = :albumDescription
+            SET albumName = :albumName, albumImg = :albumImg, albumCover = :albumCover, albumAutor = :albumAutor, albumTracks = :albumTracks, albumDescription = :albumDescription
             WHERE albumID = :albumID;
         EOSQL;
 

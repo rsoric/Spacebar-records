@@ -1,4 +1,6 @@
-<?php include_once('header.php'); ?>
+<?php include_once "header.php";
+      include_once "Backend/releases.php"
+ ?>
 
 <main class="px-3">
 
@@ -15,19 +17,46 @@
         </tr>
       </thead>
       <tbody>
+      <?php 
+      $releases = $_releases->getDBdata();
+      while($album = $releases->fetch()):?>
         <tr>
-          <th scope="row">
-            <img src="https://media.pitchfork.com/photos/5929a534b1335d7bf1698b43/1:1/w_320/ebf5c60d.jpg" class="img-responsive catalogue-cover">
+          <form action="release.php" method="post">
+          <th style="display: none;">
+            <input type="hidden" name="catalogueID" value="<?= htmlspecialchars($album['catalogueID'])?>">
           </th>
-          <td class="align-middle">SPCBR001</td>
-          <td class="align-middle">Young Hacker</td>
-          <td class="align-middle">Rave Anthems</td>
+          <th scope="row">
+            <input type="hidden" name="albumImg" value="<?= htmlspecialchars($album['albumImg'])?>">
+            <img src="<?= htmlspecialchars($album['albumImg'])?>" class="img-responsive catalogue-cover" loading = "lazy">
+          </th>
+          <th style="display: none;">
+            <input type="hidden" name="albumCover" value="<?= htmlspecialchars($album['albumCover'])?>">
+          </th>
           <td class="align-middle">
-          <a href="release.php">
+            <input type="hidden" name="catalogueID" value="<?= htmlspecialchars($album['catalogueID'])?>">
+            <?= htmlspecialchars($album['catalogueID']) ?>
+          </td>
+          <td class="align-middle">
+            <input type="hidden" name="albumAutor" value="<?= htmlspecialchars($album['albumAutor'])?>">
+            <?= htmlspecialchars($album['albumAutor']) ?>
+          </td>
+          <td class="align-middle">
+            <input type="hidden" name="albumName" value="<?= htmlspecialchars($album['albumName'])?>">
+            <?= htmlspecialchars($album['albumName']) ?>
+          </td>
+          <th style="display: none;">
+            <input type="hidden" name="albumTracks" value="<?= $album['albumTracks']?>">
+          </th>
+          <th style="display: none;">
+            <input type="hidden" name="albumDescription" value="<?= $album['albumDescription']?>">
+          </th>
+          <td class="align-middle">
             <input  class="product-edit-button" type="submit" value="View" id="view-release">
-             </a>
-            </td>
+          </td>
+          </form>
         </tr>
+      <?php
+      endwhile; ?>
       </tbody>
     </table>
     

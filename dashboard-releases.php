@@ -29,7 +29,9 @@
                 <form id="edit-form" action="dashboard-edit-release.php" method="post">
                   <th style="display: none;" scope="row">
                     <input type="hidden" name="albumID" value="<?= htmlspecialchars($album['albumID'])?>">
-                    <?= htmlspecialchars($album['albumID']) ?>
+                  </th>
+                  <th style="display: none;">
+                    <input type="hidden" name="albumCover" value="<?= htmlspecialchars($album['albumCover'])?>">
                   </th>
                   <th scope="row">
                     <input type="hidden" name="albumImg" value="<?= htmlspecialchars($album['albumImg'])?>">
@@ -47,6 +49,12 @@
                     <input type="hidden" name="albumName" value="<?= htmlspecialchars($album['albumName'])?>">
                     <?= htmlspecialchars($album['albumName']) ?>
                   </td>
+                  <th style="display: none;" scope="row">
+                    <input type="hidden" name="albumTracks" value="<?= $album['albumTracks']?>">
+                  </th>
+                  <th style="display: none;" scope="row">
+                    <input type="hidden" name="albumDescription" value="<?= $album['albumDescription']?>">
+                  </th>
                   <td class="align-middle">
                     <input class="product-edit-button" type="submit" name="submit" value="Edit" id="product-edit-1">
                   </td>

@@ -7,13 +7,11 @@
         $albumID = sanitizeInput($_POST["albumID"]);
         $albumName = sanitizeInput($_POST["albumName"]);
         $albumImg = sanitizeInput($_POST["albumImg"]);
+        $albumCover = sanitizeInput($_POST["albumCover"]);
         $albumAutor = sanitizeInput($_POST["albumAutor"]);
         $albumTracks = sanitizeInput($_POST["albumTracks"]);
         $albumDescription = sanitizeInput($_POST["albumDescription"]);
     }
-
-    
-
 ?>
 
 <div class="container-fluid dashboard-content">
@@ -41,12 +39,12 @@
                         <input class="form-control form-control-lg" type="text" name="albumName" value="<?php echo $albumName?>" required>
                         <label for="albumImg">Cover URL:</label>
                         <input class="form-control form-control-lg" type="url" name="albumImg" value="<?php echo $albumImg?>" required>
-                        <label for="albumImg">Back cover URL:</label>
-                        <input class="form-control form-control-lg" type="url" name="albumImg" value="<?php echo $albumImg?>" required>
+                        <label for="albumCover">Back cover URL:</label>
+                        <input class="form-control form-control-lg" type="url" name="albumCover" value="<?php echo $albumCover?>" required>
                         <label for="albumTracks">Tracklist:</label>
-                        <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea"><?php echo $albumTracks?></textarea>
+                        <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea" name="albumTracks"><?php echo $albumTracks?></textarea>
                         <label for="albumDescription">Description:</label>
-                        <textarea class="form-control" rows="5" style="height:100%;" aria-label="With textarea"><?php echo $albumDescription?></textarea>
+                        <textarea class="form-control" rows="5" style="height:100%;" aria-label="With textarea" name="albumDescription"><?php echo $albumDescription?></textarea>
                     </div>
                     
                     

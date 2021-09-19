@@ -1,20 +1,4 @@
-<?php include_once "dashboard-header.php";
-      include_once "Backend/releases.php";
-      include_once "Backend/functions.php";
-
-    if(isset($_POST['submit']))
-    {
-        $albumID = sanitizeInput($_POST["albumID"]);
-        $albumName = sanitizeInput($_POST["albumName"]);
-        $albumImg = sanitizeInput($_POST["albumImg"]);
-        $albumAutor = sanitizeInput($_POST["albumAutor"]);
-        $albumTracks = sanitizeInput($_POST["albumTracks"]);
-        $albumDescription = sanitizeInput($_POST["albumDescription"]);
-    }
-
-    
-
-?>
+<?php include_once "dashboard-header.php";?>
 
 <div class="container-fluid dashboard-content">
     <div class="row">
@@ -29,24 +13,22 @@
     </div>
 
     <div class="new-product-input">
-        <form id="edit-product-form" action="Backend/releases-edit.php" method="post">
+        <form id="edit-product-form" action="Backend/releases-add.php" method="post">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label hidden for="albumID">Id Number:</label>
-                        <input hidden class="form-control form-control-lg" type="text" name="albumID" value="">
                         <label for="albumAutor">Artist:</label>
                         <input class="form-control form-control-lg" type="text" name="albumAutor" value="" required>
                         <label for="albumName">Title:</label>
                         <input class="form-control form-control-lg" type="text" name="albumName" value="" required>
                         <label for="albumImg">Cover URL:</label>
                         <input class="form-control form-control-lg" type="url" name="albumImg" value="" required>
-                        <label for="albumImg">Back cover URL:</label>
-                        <input class="form-control form-control-lg" type="url" name="albumImg" value="" required>
+                        <label for="albumCover">Back cover URL:</label>
+                        <input class="form-control form-control-lg" type="url" name="albumCover" value="" required>
                         <label for="albumTracks">Tracklist:</label>
-                        <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea"></textarea>
+                        <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea" name="albumTracks" ></textarea>
                         <label for="albumDescription">Description:</label>
-                        <textarea class="form-control" rows="5" style="height:100%;" aria-label="With textarea"></textarea>
+                        <textarea class="form-control" rows="5" style="height:100%;" aria-label="With textarea" name="albumDescription"></textarea>
                     </div>
                     
                     
