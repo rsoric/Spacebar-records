@@ -3,8 +3,8 @@
     final class DBConfig
     {
         const serverName = "eu-cdbr-west-01.cleardb.com";
-        const dbUsername = "b2c4afb48a6351";
-        const dbPassword = "d03f04dc";
+        const dbUsername = "b3b04ddfd947fc";
+        const dbPassword = "384d1b9c";
         const dbName = "homebase";
     }
 
