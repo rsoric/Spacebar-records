@@ -46,7 +46,7 @@
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link <?= ($activePage == 'index') ? 'nav-current':''; ?>" href="index.php">Home</a>
         <a class="nav-link <?= ($activePage == 'about') ? 'nav-current':''; ?>" href="about.php">About</a>
-        <a class="nav-link <?= ($activePage == 'releases') ? 'nav-current':''; ?>" href="releases.php">Releases</a>
+        <a class="nav-link <?= ($activePage == 'releases' || $activePage == 'release') ? 'nav-current':''; ?>" href="releases.php">Releases</a>
         <a class="nav-link <?= ($activePage == 'login') ? 'nav-current':''; ?>" href="login.php">Login</a>
       </nav>
     </div>

@@ -19,7 +19,7 @@
 <div class="container-fluid dashboard-content">
     <div class="row">
         <div class="col">
-            <h1>Edit release:</h1>
+            <h1>Add release:</h1>
         </div>
         <div class="col-3">
             <form action="dashboard-releases.php">
@@ -34,28 +34,25 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label hidden for="albumID">Id Number:</label>
-                        <input hidden class="form-control form-control-lg" type="text" name="albumID" value="<?php echo $albumID?>">
+                        <input hidden class="form-control form-control-lg" type="text" name="albumID" value="">
                         <label for="albumAutor">Artist:</label>
-                        <input class="form-control form-control-lg" type="text" name="albumAutor" value="<?php echo $albumAutor?>" required>
+                        <input class="form-control form-control-lg" type="text" name="albumAutor" value="" required>
                         <label for="albumName">Title:</label>
-                        <input class="form-control form-control-lg" type="text" name="albumName" value="<?php echo $albumName?>" required>
+                        <input class="form-control form-control-lg" type="text" name="albumName" value="" required>
                         <label for="albumImg">Cover URL:</label>
-                        <input class="form-control form-control-lg" type="url" name="albumImg" value="<?php echo $albumImg?>" required>
+                        <input class="form-control form-control-lg" type="url" name="albumImg" value="" required>
                         <label for="albumImg">Back cover URL:</label>
-                        <input class="form-control form-control-lg" type="url" name="albumImg" value="<?php echo $albumImg?>" required>
+                        <input class="form-control form-control-lg" type="url" name="albumImg" value="" required>
                         <label for="albumTracks">Tracklist:</label>
-                        <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea"><?php echo $albumTracks?></textarea>
+                        <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea"></textarea>
                         <label for="albumDescription">Description:</label>
-                        <textarea class="form-control" rows="5" style="height:100%;" aria-label="With textarea"><?php echo $albumDescription?></textarea>
+                        <textarea class="form-control" rows="5" style="height:100%;" aria-label="With textarea"></textarea>
                     </div>
                     
                     
                 </div>
             </div>
             <div class="d-flex p-2 justify-content-around">
-
-                    <input type="submit" name="delete" class="btn btn-primary delete-product-button" value="Delete release">
-
 
                     <input type="submit" name="update" class="btn btn-primary add-product-button" value="Save">   
 
