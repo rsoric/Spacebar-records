@@ -41,6 +41,8 @@
                         <input class="form-control form-control-lg" type="text" name="albumName" value="<?php echo $albumName?>" required>
                         <label for="albumImg">Cover URL:</label>
                         <input class="form-control form-control-lg" type="url" name="albumImg" value="<?php echo $albumImg?>" required>
+                        <label for="albumImg">Back cover URL:</label>
+                        <input class="form-control form-control-lg" type="url" name="albumImg" value="<?php echo $albumImg?>" required>
                         <label for="albumTracks">Tracklist:</label>
                         <textarea class="form-control" rows="10" style="height:100%;" aria-label="With textarea"><?php echo $albumTracks?></textarea>
                         <label for="albumDescription">Description:</label>

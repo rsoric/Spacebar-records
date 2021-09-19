@@ -74,6 +74,8 @@ a:link {
   max-height: 10rem;
 }
 
+
+
 .form-floating{
   margin:30px;
 }
@@ -158,4 +160,9 @@ a:link {
 
 .mobile-menu-logo{
   width:100vw;
+}
+
+.album-details-img{
+  width: 100%;
+  padding:2rem;
 }
