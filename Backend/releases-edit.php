@@ -1,4 +1,5 @@
 <?php 
+
     include_once "releases.php";
     include_once "functions.php";
 
@@ -7,6 +8,7 @@
         $albumID = sanitizeInput($_POST["albumID"]);
         $albumName = sanitizeInput($_POST["albumName"]);
         $albumImg = sanitizeInput($_POST["albumImg"]);
+        $albumCover = sanitizeInput($_POST["albumCover"]);
         $albumAutor = sanitizeInput($_POST["albumAutor"]);
         $albumTracks = sanitizeInput($_POST["albumTracks"]);
         $albumDescription = sanitizeInput($_POST["albumDescription"]);
@@ -18,7 +20,7 @@
         }
         elseif(isset($_POST['update']))
         {
-            $_releases->updateAlbum($albumID, $albumName, $albumImg, $albumAutor, $albumTracks, $albumDescription);
+            $_releases->updateAlbum($albumID, $albumName, $albumImg, $albumCover, $albumAutor, $albumTracks, $albumDescription);
             header("Location: ../dashboard-releases.php");
         }
     }

@@ -14,7 +14,7 @@ if (isSet($_COOKIE["Admin"]))
   {
     if($_GET["error"] == "wrongcredentials")
     {
-      echo "<p>Pogrešan e-mail ili lozinka</p>";
+      echo "<p>Wrong email or password!</p>";
     }
   }
 ?>

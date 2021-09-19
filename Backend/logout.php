@@ -7,5 +7,3 @@
     }
 
     header("Location: ../login.php");
-
-?>
