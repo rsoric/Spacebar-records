@@ -11,6 +11,7 @@
           <th scope="col">Cat. number</th>
           <th scope="col">Artist name</th>
           <th scope="col">Title</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,11 @@
           <td class="align-middle">SPCBR001</td>
           <td class="align-middle">Young Hacker</td>
           <td class="align-middle">Rave Anthems</td>
+          <td class="align-middle">
+          <a href="release.php">
+            <input  class="product-edit-button" type="submit" value="View" id="view-release">
+             </a>
+            </td>
         </tr>
       </tbody>
     </table>

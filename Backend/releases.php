@@ -14,7 +14,7 @@ class Releases
         try
         {
             $this->_connection = new PDO($connStr, DBConfig::dbUsername, DBConfig::dbPassword);
-            echo "Connected!";
+            //echo "Connected!";
         }
         catch(PDOException $e)
         {
@@ -46,7 +46,7 @@ class Releases
         EOSQL; 
 
         $this->_connection->exec($sql);
-        echo "Table Created";
+        //echo "Table Created";
      }
 
 
