@@ -21,7 +21,9 @@ class Releases
             echo $e->getMessage();
         }
 
-        $this->createTable();    
+        $this->createTable();
+
+        
     }
 
     public function __destruct()
@@ -36,7 +38,7 @@ class Releases
          $sql = <<<EOSQL
             CREATE TABLE IF NOT EXISTS $this->_tableName (
             albumID           INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-            catalogueID       TEXT UNIQUE DEFAULT NULL,
+            catalogueID       TEXT NOT NULL,
             albumName         NVARCHAR (255) DEFAULT NULL,
             albumImg          TEXT DEFAULT NULL,
             albumCover        TEXT DEFAULT NULL,
@@ -48,12 +50,13 @@ class Releases
 
         $this->_connection->exec($sql);
         //echo "Table Created";
-     }
+    }
 
 
-    public function insertAlbum($albumName, $albumImg, $albumCover, $albumAutor, $albumTracks, $albumDescription)
+    public function insertAlbum($catalogueID, $albumName, $albumImg, $albumCover, $albumAutor, $albumTracks, $albumDescription)
     {
         $product = array(
+            ':catalogueID' => $catalogueID,
             ':albumName' => $albumName,
             ':albumImg' => $albumImg,
             ':albumCover' => $albumCover,
@@ -63,10 +66,7 @@ class Releases
         );
 
         $sql = <<<EOSQL
-            INSERT INTO $this->_tableName(albumName, albumImg, albumCover, albumAutor, albumTracks, albumDescription) VALUES(:albumName, :albumImg, :albumCover, :albumAutor, :albumTracks, :albumDescription);
-            UPDATE $this->_tableName
-            SET catalogueID = CONCAT("SPCBR", LPAD(LAST_INSERT_ID(), 3, 0))
-            WHERE albumID = LAST_INSERT_ID();
+            INSERT INTO $this->_tableName(catalogueID, albumName, albumImg, albumCover, albumAutor, albumTracks, albumDescription) VALUES(:catalogueID, :albumName, :albumImg, :albumCover, :albumAutor, :albumTracks, :albumDescription);
         EOSQL;
 
         $stmt = $this->_connection->prepare($sql);
@@ -79,6 +79,32 @@ class Releases
         {
             echo $e->getMessage();
         }
+    }
+
+    public function generateRandomCatalougeID()
+    {
+        $mark = 'SPCBR';
+        $ranNum = rand(1,999);
+
+        $number = str_pad($ranNum, 3, '0', STR_PAD_LEFT);
+
+        $catalogueID = $mark . $number;
+
+        return $catalogueID;
+    }
+
+
+    public function CheckIfSameID($id)
+    {
+        $data = $this->getDBdata();
+        
+        while ($album = $data->fetch())
+        {
+            if($id == $album['catalogueID']){
+                return true;
+            }
+        }
+        return false;
     }
 
     public function updateAlbum($albumID, $albumName, $albumImg, $albumCover, $albumAutor, $albumTracks, $albumDescription)
