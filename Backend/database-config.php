@@ -3,8 +3,8 @@
     final class DBConfig
     {
         const serverName = "eu-cdbr-west-01.cleardb.com";
-        const dbUsername = "bcf487fdd3ecd2";
-        const dbPassword = "e5923fc5";
-        const dbName = "heroku_ba0aa51a5c78d32";
+        const dbUsername = "b80481a30d6a26";
+        const dbPassword = "8fb6e8ce";
+        const dbName = "heroku_b95388338badc11";
     }
 
