@@ -1,6 +1,8 @@
-<?php include_once "header.php";
-      include_once "Backend/releases.php";
- ?>
+<?php 
+include_once "header.php";
+
+define("FS_ROOT", realpath(dirname(__FILE__)));
+include_once FS_ROOT.'\Backend\releases.php'; ?>
 
 <main class="px-3">
 
