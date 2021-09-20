@@ -12,8 +12,6 @@
     <script src="js/slick.min.js"></script>
     <!-- Custom Script -->
     <script src="js/carousel.js"></script>
-    <!-- Custom Script -->
-    <script src="js/main.js"></script>
 </body>
 
 </html>
