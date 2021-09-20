@@ -1,8 +1,8 @@
 <?php 
 //test
 //test
-include_once "dashboard-header.php";
-      include_once "Backend/releases.php"
+      include_once "dashboard-header.php";
+      include_once "Backend/releases.php";
 ?>
 
 <div class="container-fluid dashboard-content">

@@ -1,6 +1,6 @@
 <?php include_once "header.php"; 
 
-if (isSet($_COOKIE["Admin"]))
+if (isset($_COOKIE["Admin"]))
 {
    header('Location: dashboard.php');
 }
