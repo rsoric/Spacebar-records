@@ -1,13 +1,13 @@
 <?php include_once "dashboard-header.php";
-      include_once "Backend/releases.php"
+      include_once "Backend/releases.php";
 ?>
 
 <div class="container-fluid dashboard-content">
   <div class="row">
     <div class="col-3">
-      <a href="dashboard-add-release.php">
-      <input style="margin-bottom:20px;" class="product-edit-button" type="submit" value="Add release" id="add-release">
-       </a>
+      <form action="dashboard-add-release.php">
+        <input style="margin-bottom:20px;" class="product-edit-button" type="submit" value="Add release" id="add-release">
+      </form>
     </div>
   </div>
     <div class="row">

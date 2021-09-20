@@ -12,7 +12,16 @@
         $albumTracks = sanitizeInput($_POST["albumTracks"]);
         $albumDescription = sanitizeInput($_POST["albumDescription"]);
 
-        $_releases->insertAlbum($albumName, $albumImg, $albumCover, $albumAutor, $albumTracks, $albumDescription);
+        $randID = $_releases->generateRandomCatalougeID();
+
+        while($_releases->CheckIfSameID($randID))
+        {
+            $randID = $_releases->generateRandomCatalougeID();
+        }
+
+        $catalogueID =  sanitizeInput($randID);
+
+        $_releases->insertAlbum($catalogueID, $albumName, $albumImg, $albumCover, $albumAutor, $albumTracks, $albumDescription);
         header("Location: ../dashboard-releases.php");
     }
 

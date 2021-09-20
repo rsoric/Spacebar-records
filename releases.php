@@ -1,5 +1,5 @@
 <?php include_once "header.php";
-      include_once "Backend/releases.php"
+      include_once "Backend/releases.php";
  ?>
 
 <main class="px-3">
